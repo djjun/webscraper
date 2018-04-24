@@ -1,0 +1,53 @@
+
+<h2 *ngIf="loading" class="text-center">Carregando...</h2>
+<div *ngIf="!loading">
+
+    <h3>Detalhes</h3>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{dataUser.id}}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{dataUser.status}}</td>
+            </tr>
+            <tr>
+                <th>Credit Limit</th>
+                <td>{{dataUser.precise_credit_limit | currency:'BRL'}}</td>
+            </tr>
+            <tr>
+                <th>Due Day</th>
+                <td>{{dataUser.due_day}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Cartões</h4>
+
+    <div class="row">
+        <div *ngFor="let card of dataUser.cards"  class="col-12 col-md-6">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <td>{{card.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Product ID</th>
+                        <td>{{card.product_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{card.printed_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{card.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</div>
